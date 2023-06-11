@@ -1,10 +1,12 @@
-@import "../../assets/styles/colors"
+@use "../../assets/styles/colors" as colors
 
 .Search
+  display: block
   width: 100%
+  max-width: 700px
   border-radius: 0.25rem
   padding: 0.5rem
-  background: $color-white-cultured
+  background: colors.$color-white-cultured
 
 .Search__Wrapper
   display: flex
@@ -21,3 +23,7 @@
 .Search__Filter
   border: none
   background: none
+
+.Search__Icon
+  font-size: 1.25rem
+  color: colors.$color-indigo

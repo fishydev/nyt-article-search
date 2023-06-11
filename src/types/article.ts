@@ -14,6 +14,10 @@ export type Article = {
     main: string
     kicker: string
   }
+  byline: {
+    original: string
+    person: Person[]
+  }
   pub_date: string
   section_name: string
 }
@@ -21,4 +25,11 @@ export type Article = {
 export type Multimedia = {
   subtype: string
   url: string
+}
+
+export type Person = {
+  firstname: string
+  middlename: string
+  lastname: string
+  rank: number
 }

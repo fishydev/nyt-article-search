@@ -1,10 +1,11 @@
-@import '../../assets/styles/colors'
+@use '../../assets/styles/colors' as colors
+@use '../../assets/styles/screens.sass' as screens
 
 .Article
   border-radius: 0.5rem
-  max-height: 140px
+  height: 100%
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px
-  background: $color-white-cultured
+  background: colors.$color-white-cultured
   z-index: 5
   a
     text-decoration: none
@@ -18,17 +19,29 @@
 
 .Article__Wrapper
   display: flex
-  min-height: 140px
+  flex-direction: column
+  height: 100%
 
 .Article__Image
-  border-radius: 0.5rem 0 0 0.5rem
-  width: 140px
-  height: 140px
+  border-radius: 0.5rem 0.5rem 0 0
+  border: none
+  width: 100%
+  height: 180px
   object-fit: cover
+
+.Article__Image-placeholder
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100%
+  height: 180px
+  font-size: 3rem
+  color: colors.$color-slate-gray
 
 .Article__Info
   padding: 0.75rem 0.5rem
   display: flex
+  flex-grow: 1
   flex-direction: column
   justify-content: space-between
 
@@ -36,16 +49,17 @@
   display: flex
   flex-direction: column
   gap: 0.25rem
+  margin-bottom: 1rem
 
 .Article__Title
   font-size: 1rem
   font-weight: 600
-  color: $color-indigo
+  color: colors.$color-indigo
 
 .Article__Metadata
   display: flex
-  color: $color-slate-gray
-  font-size: 0.75rem
+  color: colors.$color-slate-gray
+  font-size: 0.8rem
   span:not(:last-child)::after
     content: "\2022"
     margin: 0 0.5rem
@@ -54,4 +68,8 @@
   text-transform: uppercase
   font-weight: 500
   font-size: 0.9rem
-  color: $color-slate-gray
+  color: colors.$color-slate-gray
+
+@media screen and (min-width: screens.$screen-md)
+  .Article__Info
+    flex-grow: 1

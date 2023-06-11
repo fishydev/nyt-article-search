@@ -14,13 +14,13 @@ export const Search = (props: SearchProps) => {
   return (
     <div className="Search">
       <span className="Search__Wrapper">
-        <span className="Search__SearchIcon">
-          <MdSearch />
+        <span>
+          <MdSearch className="Search__Icon" />
         </span>
         <input className="Search__Input" type="text" onChange={onChangeQuery} />
-        <button className="Search__Filter">
-          <MdDateRange />
-        </button>
+        {/* <button className="Search__Filter">
+          <MdDateRange className="Search__Icon" />
+        </button> */}
       </span>
     </div>
   )
