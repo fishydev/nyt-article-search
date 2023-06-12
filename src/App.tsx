@@ -8,7 +8,7 @@ import "./App.sass"
 import { SearchArticlesParams, getArticles } from "./api/article"
 import { ArticleSearchResponse } from "./types"
 import { Article } from "./types"
-import { CardSkeleton } from "./components/Skeleton/CardSkeleton"
+import { CardSkeleton } from "./components/ArticleCard/ArticleCardSkeleton"
 import { toast, ToastContainer } from "react-toastify"
 
 const renderSkeleton = (n: number) => {
@@ -70,7 +70,13 @@ function App() {
           })}
       </div>
 
-      {loading && <PulseLoader className="App__Spinner" color="#26354b" />}
+      {loading && (
+        <PulseLoader
+          className="App__Spinner"
+          color="#26354b"
+          data-testid="loading-spinner"
+        />
+      )}
       {!loading && (
         <button
           className="App__LoadButton"

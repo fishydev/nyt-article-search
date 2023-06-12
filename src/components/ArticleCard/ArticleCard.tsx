@@ -1,6 +1,6 @@
 import React from "react"
 import "./ArticleCard.sass"
-import { Article, Multimedia } from "../../types"
+import { Article } from "../../types"
 import dayjs from "dayjs"
 import { Person } from "../../types/article"
 import { MdNoPhotography } from "react-icons/md"
@@ -36,7 +36,10 @@ export const ArticleCard = (props: ArticleCardProps) => {
         rel="noreferrer"
       >
         {article.multimedia.length === 0 && (
-          <div className="Article__Image-placeholder">
+          <div
+            className="Article__Image-placeholder"
+            data-testid="no-image-placeholder"
+          >
             <MdNoPhotography />
           </div>
         )}
@@ -50,15 +53,10 @@ export const ArticleCard = (props: ArticleCardProps) => {
             <img
               className="Article__Image"
               src={findMedia("largeHorizontal375")}
-              alt=""
+              alt={article.headline.main}
             />
           </picture>
         )}
-        {/* <img
-          className="Article__Image"
-          src={findMedia("largeHorizontal375")}
-          alt=""
-        /> */}
         <div className="Article__Info">
           <div className="Article__Detail">
             <h4 className="Article__Section">{article.section_name}</h4>
@@ -66,7 +64,7 @@ export const ArticleCard = (props: ArticleCardProps) => {
           </div>
           <div className="Article__Metadata">
             {article.byline.person.length > 0 && (
-              <span className="Article__Author">
+              <span className="Article__Author" data-testid="article-author">
                 {getAuthor(article.byline.person[0])}
               </span>
             )}

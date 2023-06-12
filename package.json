@@ -15,7 +15,6 @@
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.8",
     "react": "^18.2.0",
-    "react-day-picker": "^8.7.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
     "react-scripts": "5.0.1",
@@ -49,5 +48,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "debug": "^4.3.4",
+    "nock": "^13.3.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^axios$": "axios/dist/node/axios.cjs"
+    }
   }
 }
